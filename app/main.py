@@ -39,12 +39,9 @@ def add_entry(username, password):
 """
 Default route and routes to login page
 """
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/login', methods=['GET', 'POST'])
-@app.route('/admin/login', methods=['GET', 'POST'])
-@app.route('/wp-login', methods=['GET', 'POST'])
-@app.route('/adminlogin', methods=['GET', 'POST'])
-def login():
+@app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
+@app.route('/<path:path>', methods=['GET', 'POST'])
+def login(path):
     error = 'Invalid Credentials. Please try again.'
     if request.method == 'POST':
         add_entry(request.form['username'], request.form['password'])
