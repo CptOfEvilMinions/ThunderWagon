@@ -1,12 +1,17 @@
 # ThunderWagon
+
+## Docker setup
+0. docker build -t thunderwagon .
+0. docker run -d -p 80:5000 thunderwagon
+
 ## Install/Setup on Centos 7
 0. yum install epel-release git nginx tmux python-pip -y
-1. pip install virtualenv
-1. useradd webapp
-2. su webbapp
-2. git clone https://github.com/Benster900/ThunderWagon.git
-3. cd ThunderWagon
-3. Add Slack webhook token to config.py
+0. pip install virtualenv 
+0. useradd webapp
+0. su webbapp
+0. git clone https://github.com/Benster900/ThunderWagon.git
+0. cd ThunderWagon/webapp
+0. Add Slack webhook token to config.py
 4. tmux new -s webapp
 4. virtualenv env
 5. source env/bin/activate
